@@ -1,0 +1,7 @@
+{
+  "name": "financialPoliApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
