@@ -91,6 +91,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 import {
   IonPage,
   IonContent,
@@ -101,6 +102,9 @@ import {
   IonIcon,
 } from '@ionic/vue';
 import { eyeOutline, eyeOffOutline } from 'ionicons/icons';
+
+// Instancia del router
+const router = useRouter();
 
 // Controladores y estados
 const email = ref('');
@@ -122,7 +126,11 @@ const login = async () => {
       }
     );
 
-    console.log('Respuesta del servidor:', response.data);
+    if (response.status === 201) {
+      console.log('Inicio de sesión exitoso:', response.data);
+      localStorage.setItem('authToken', response.data.token);
+      router.push('/folder/mainAccount');
+    }
 
     // Puedes manejar el token o los datos devueltos aquí
     alert('Inicio de sesión exitoso');

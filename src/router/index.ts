@@ -8,7 +8,19 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/folder/:id',
-    component: () => import ('../views/inicio_sesion.vue')
+    component: () => import('@/views/inicio_sesion.vue')
+  },
+  {
+    path: "/folder/addCount",
+    component: () => import('@/views/agregar_cuentas.vue')
+  },
+  {
+    path: "/folder/mainAccount",
+    component: () => import('@/views/cuenta_principal.vue')
+  },
+  {
+    path: "/folder/transfer",
+    component: () => import('@/views/nueva_transaccion.vue')
   }
 ]
 
